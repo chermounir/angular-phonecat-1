@@ -2,14 +2,30 @@
 
 angular.
   module('core.phone').
-  factory('Phone', ['$resource',
-    function($resource) {
-      return $resource('phones/:phoneId.json', {}, {
-        query: {
-          method: 'GET',
-          params: {phoneId: 'phones'},
-          isArray: true
-        }
-      });
+  factory('Phone', ['$http',  function($http) {
+
+     let service = {};
+     let endpoint = "http://localhost:3000/phones/";
+
+     service.getAll = function(){      
+        console.trace('GET ' + endpoint);
+        return $http.get(endpoint);
+     }
+
+
+      service.getById = function( id ){
+        let url = endpoint + id;
+        console.trace('GET ' + url);
+        return $http.get(url);
+      }
+
+      service.post = function( phone ){
+        let url = endpoint;
+        console.trace('POST ' + url);
+        return $http.post(url, phone );
+      }
+
+
+      return service;
     }
   ]);

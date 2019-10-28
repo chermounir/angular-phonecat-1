@@ -1,0 +1,22 @@
+<div class="thumbnail">
+    <div ng-if="!$ctrl.mostrar.id">
+      <p>Selecciona móvil</p>
+      <img class="thumbnail" alt=""src="img/phones/Best-Phone-Brands-for-2019-Medium.png">
+    </div>
+    <div ng-if="$ctrl.mostrar.id">
+      <img ng-src="{{$ctrl.mostrar.imageUrl}}" alt="">
+      <div class="caption">
+       <h3>{{$ctrl.mostrar.id}}</h3>
+       <p> {{$ctrl.mostrar.snippet}}</p>              
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <ip-comparar v1="{{ $ctrl.mostrar.storage.flash}}" v2="{{$ctrl.comparar.storage.flash}}" unidad="MB"></ip-comparar>
+       </li>
+        <li class="list-group-item">
+         <ip-comparar v1="{{ $ctrl.mostrar.storage.ram}}" v2="{{$ctrl.comparar.storage.ram}}"  unidad="MB"></ip-comparar>
+        </li>          
+      </ul>
+      <button type="button" class="btn btn-primary dropdown-toggle" ng-click="$ctrl.comprar()" comprar="{{$ctrl.mostrar.id}}">Comprar</button>
+    </div>
+</div>  

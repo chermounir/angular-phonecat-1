@@ -91,3 +91,24 @@ h1 {
   font-size: 1.2em;
   font-weight: bold;
 }
+
+.thumbnail img{
+  width: 150px;
+  height: auto;
+  display:block;
+margin:auto;
+}
+
+img.responsive{
+  width: 100%;
+  height: auto;
+}
+.ochenta{
+  width: 80%;
+  float: left;
+}
+.vente{
+  width: 20%;
+  float: left;
+  padding-top: 3%;
+}

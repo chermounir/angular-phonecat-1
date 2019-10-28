@@ -1,0 +1,66 @@
+<div class="container">
+  <h2>Comparador</h2>
+  <div class="row">
+
+    <!-- 1º columan -->
+    <div class="col-md-3">   
+        <div class="border p-2 mb-2 bg-light">
+          <input type="search" ng-model="nombre" placeholder="Busca por nombre">
+
+  
+          <select ng-model="$ctrl.filtro.atributo">
+            <option value="ram">RAM</option>
+            <option value="flash">FLASH</option>
+          </select>
+  
+          <br>
+          <label>MIN {{$ctrl.filtro.min}}</label>
+          <input type="range" ng-model="$ctrl.filtro.min" step="512" max="2048" min="0">
+  
+          <label>MAX {{$ctrl.filtro.max}}</label>
+          <input type="range" ng-model="$ctrl.filtro.max" step="512" max="32000" min="0">
+  
+          <ul class="list-group">
+            <li class="list-group-item" 
+                ng-repeat="phone in $ctrl.phones | filter:nombre | filtroTelefonos:$ctrl.filtro"
+                ng-click="$ctrl.selecionar(phone)">
+              <img ng-src="{{phone.imageUrl}}" class="responsive"/>
+              {{phone.name}}
+              <br>
+              FLASH:{{phone.storage.flash}}  RAM:{{phone.storage.ram}}
+            </li>          
+          </ul>
+        
+        </div>
+<br>
+        <ul class="list-group">
+          <li class="list-group-item" 
+              ng-repeat="phone in $ctrl.phones | filter:busqueda"
+              ng-click="$ctrl.selecionar(phone)">
+            <img ng-src="{{phone.imageUrl}}" class="responsive"/>
+            {{phone.name}}
+            <br>
+            Flash: {{phone.storage.flash}} - Ram: {{phone.storage.ram}} 
+
+          </li>          
+        </ul>
+    </div>
+    <div class="col-md-1"></div>
+    <!-- 2º columan -->
+    <div class="col-md-4">
+        <phone-comparador-detalle mostrar="$ctrl.phone1" comparar="$ctrl.phone2"></phone-comparador-detalle>     
+          </div>
+
+    <!-- 3º columan -->
+    <div class="col-md-4">
+        <phone-comparador-detalle mostrar="$ctrl.phone2" comparar="$ctrl.phone1"></phone-comparador-detalle>
+           
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+
+</div>
+			
+  

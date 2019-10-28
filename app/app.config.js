@@ -11,6 +11,21 @@ angular.
         when('/phones/:phoneId', {
           template: '<phone-detail></phone-detail>'
         }).
+        when('/comparador', {
+          template: '<phone-comparador></phone-comparador>'
+        }).
+        when('/nuevo', {
+          template: '<phone-nuevo></phone-nuevo>'
+        }).
+        when('/editar/:phoneId', {
+          template: '<phone-nuevo></phone-nuevo>'
+        }).
+        when('/carrito', {
+          template: '<phone-carrito></phone-carrito>'
+        }).
+        when('/404', {
+          templateUrl: 'error.html'
+        }).
         otherwise('/phones');
     }
   ]);

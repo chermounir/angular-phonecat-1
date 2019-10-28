@@ -1,0 +1,76 @@
+<div class="alert alert-{{$ctrl.clase}} alert-dismissible fade show" role="alert">
+    <p ng-bind-html="$ctrl.texto"></p> 
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<h2>Nuevo Movil:</h2>
+<div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+  
+           <form name="formulario" ng-submit="postear()">
+  
+               <div class="form-group">
+                   <label>Id</label>
+                   <input type="text" 
+                          name="name"
+                          class="form-control" 
+                          ng-model="$ctrl.formData.id"
+                          required
+                          placeholder="Enter Id">
+               </div>
+               <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" 
+                           name="name"
+                           class="form-control" 
+                          ng-model="$ctrl.formData.name"
+                           required
+                           placeholder="Enter email">
+                </div>
+               <div class="form-group">
+                    <label>Descripción</label>
+                    <input type="text" 
+                           name="snippet"
+                           class="form-control" 
+                          ng-model="$ctrl.formData.snippet"
+                           required
+                           placeholder="Enter Descripción">
+                </div>
+                <div class="form-group">
+                        <label>Imagen</label>
+                        <input type="text" 
+                               name="imageUrl"
+                               class="form-control" 
+                          ng-model="$ctrl.formData.imageUrl"
+                               required
+                               placeholder="Enter Imagen">
+                    </div>
+                    <div class="form-group">
+                            <label>Flash</label>
+                            <input type="number" 
+                                   name="flash"
+                                   class="form-control" 
+                          ng-model="$ctrl.formData.storage.flash"
+                                   required
+                                   placeholder="Enter Flash">
+                        </div>
+                        <div class="form-group">
+                                <label>Ram</label>
+                                <input type="number" 
+                                       name="ram"
+                                       class="form-control" 
+                          ng-model="$ctrl.formData.storage.ram"
+                                       required
+                                       placeholder="Enter Ram">
+                            </div>
+  
+  
+               <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">Guardar</button> 
+  
+           </form>
+  
+        </div>
+        <div class="col-md-4"></div>
+    </div>
